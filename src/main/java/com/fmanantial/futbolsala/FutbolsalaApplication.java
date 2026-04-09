@@ -10,6 +10,4 @@ public class FutbolsalaApplication {
 		SpringApplication.run(FutbolsalaApplication.class, args);
 	}
 
-        // Github
-        // Github 2
 }
