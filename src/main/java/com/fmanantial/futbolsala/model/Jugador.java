@@ -6,10 +6,17 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-
 @Table(name="jugadores")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Jugador {
     
     // Clave Primaria
@@ -23,12 +30,6 @@ public class Jugador {
     private String demarcacion;
     private Integer nrogoles;
     private Integer valoracion;
-    
-    
-    public Jugador()
-    {
-        
-    }
     
    
 }
