@@ -8,8 +8,7 @@ public class FutbolsalaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FutbolsalaApplication.class, args);
+                
 	}
-
-        // SOLO HE HECHO COMMIT
         
 }
