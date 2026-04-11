@@ -6,29 +6,28 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import java.util.ArrayList;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @Entity
-@Table(name="equipos")
+@Table(name="partidos")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Equipo {
-
-    // Clave Primaria
+public class Partido {
+    
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+    private Long id;    
     
-    private String nombre;
-    private String localidad;
+    Long idLocal;
+    Long idVisitante;
     
-    //private ArrayList<Jugador> plantilla;
-    
+    int nro_goles_local;
+    int nro_goles_visitante;
     
 }
