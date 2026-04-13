@@ -1,7 +1,10 @@
 
 package com.fmanantial.futbolsala.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,12 +27,14 @@ public class Jugador {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
    
-    
     private String nombre;
     private String apellidos;
-    private String demarcacion;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition="VARCHAR(255) DEFAULT 'OTRA'")
+    private DemarcacionJugador demarcacion;
+    
     private Integer nrogoles;
     private Integer valoracion;
     
-   
 }
