@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,10 +25,12 @@ public class Partido {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;    
     
-    Long idLocal;
-    Long idVisitante;
-    
     int nro_goles_local;
     int nro_goles_visitante;
+   
+    @ManyToMany
+    Equipo equipoLocal;
+    @ManyToMany
+    Equipo equipoVisitante;
     
 }

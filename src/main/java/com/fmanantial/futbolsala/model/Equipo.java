@@ -29,6 +29,7 @@ public class Equipo {
     private String localidad;
     
     //private ArrayList<Jugador> plantilla;
+
     
     
 }
