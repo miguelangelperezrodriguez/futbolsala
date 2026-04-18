@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import java.util.ArrayList;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,8 +38,11 @@ public class Jugador {
     
     private Integer nrogoles;
     private Integer valoracion;
+  
     
-    @ManyToOne
-    Equipo equipoJugador;
+    public Jugador(String nombre)
+    {
+        this.nombre=nombre;
+    }        
     
 }

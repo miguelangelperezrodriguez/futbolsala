@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import java.util.ArrayList;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,8 +30,6 @@ public class Partido {
     int nro_goles_visitante;
    
     @ManyToMany
-    Equipo equipoLocal;
-    @ManyToMany
-    Equipo equipoVisitante;
+    ArrayList<Equipo> equipos;
     
 }
