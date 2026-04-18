@@ -32,5 +32,10 @@ public class Equipo {
     @ManyToOne
     ArrayList<Jugador> plantilla;
     
+    public Equipo (String nombre)
+    {
+        this.nombre = nombre;
+    }        
+    
     
 }

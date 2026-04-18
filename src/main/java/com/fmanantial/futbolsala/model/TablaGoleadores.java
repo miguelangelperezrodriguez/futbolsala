@@ -3,6 +3,7 @@ package com.fmanantial.futbolsala.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.util.HashMap;
 
@@ -13,6 +14,9 @@ public class TablaGoleadores {
 
     @Id
     Long idJugador;
+    
+    @OneToOne
+    Liga ligaTablaGoleadores;
     
     int posicion;
     int nro_goles;
