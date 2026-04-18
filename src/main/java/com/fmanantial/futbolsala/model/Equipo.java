@@ -5,9 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import java.util.ArrayList;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,8 +31,9 @@ public class Equipo {
     private String nombre;
     private String localidad;
     
-    @ManyToOne
-    ArrayList<Jugador> plantilla;
+    @ManyToMany
+    @JoinTable(name="jugadores_equipo")            
+    List<Jugador> plantilla;
     
     public Equipo (String nombre)
     {

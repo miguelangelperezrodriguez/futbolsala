@@ -1,11 +1,13 @@
 package com.fmanantial.futbolsala;
 
+import com.fmanantial.futbolsala.model.Calendario;
 import com.fmanantial.futbolsala.model.Equipo;
 import com.fmanantial.futbolsala.model.Jugador;
+import com.fmanantial.futbolsala.model.Partido;
+import com.fmanantial.futbolsala.repository.CalendarioRepository;
 import com.fmanantial.futbolsala.repository.EquipoRepository;
 import com.fmanantial.futbolsala.repository.JugadorRepository;
 import com.fmanantial.futbolsala.repository.PartidoRepository;
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,14 +16,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FutbolsalaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FutbolsalaApplication.class, args);
         
-                
+
         var context = SpringApplication.run(FutbolsalaApplication.class,args);
         // Abrir repositorios
         JugadorRepository repositorioJugadores = context.getBean(JugadorRepository.class);
         EquipoRepository  repositorioEquipos = context.getBean(EquipoRepository.class);
         PartidoRepository repositorioPartidos = context.getBean(PartidoRepository.class);
+        CalendarioRepository repositorioCalendario = context.getBean(CalendarioRepository.class);
+        
                 
         // Datos de prueba
         Jugador jugador1 = new Jugador("Miguel");
@@ -35,15 +38,36 @@ public class FutbolsalaApplication {
         repositorioJugadores.save(jugador3);
         
         Equipo equip1 = new Equipo ("Real Madrid");
-        Equipo equip2 = new Equipo ("FC Barcelona");        
+        Equipo equip2 = new Equipo ("FC Barcelona");    
         
-        equip1.setPlantilla((ArrayList)ljugadores);
-        equip2.setPlantilla((ArrayList)ljugadores);
-        
+        equip1.setPlantilla(ljugadores);
+        equip2.setPlantilla(ljugadores);        
+
         repositorioEquipos.save(equip1);
         repositorioEquipos.save(equip2);
-                
-       
+
+        List<Equipo> lequipos = List.of(equip1,equip2);
+        
+        Partido partido1 = new Partido (2,5);
+        Partido partido2 = new Partido (1,1);
+        
+        
+        partido1.setEquipos(lequipos);
+        partido2.setEquipos(lequipos);
+        
+        List<Partido> lPartidos = List.of(partido1,partido2);
+        
+        repositorioPartidos.save(partido1);
+        repositorioPartidos.save(partido2);
+        
+        // Creamos entradas al calendario
+         Calendario calendario1 = new Calendario();
+         
+         calendario1.setPartidosLiga(lPartidos);
+         
+         repositorioCalendario.save(calendario1);
+        
+        
 	}
         
 }
