@@ -1,12 +1,18 @@
 package com.fmanantial.futbolsala;
 
 import com.fmanantial.futbolsala.model.Calendario;
+import com.fmanantial.futbolsala.model.EntradasTablaClasificacion;
+import com.fmanantial.futbolsala.model.EntradasTablaGoleadores;
 import com.fmanantial.futbolsala.model.Equipo;
 import com.fmanantial.futbolsala.model.Jugador;
+import com.fmanantial.futbolsala.model.Liga;
 import com.fmanantial.futbolsala.model.Partido;
 import com.fmanantial.futbolsala.repository.CalendarioRepository;
+import com.fmanantial.futbolsala.repository.EntradasTablaClasificacionRepository;
+import com.fmanantial.futbolsala.repository.EntradasTablaGoleadoresRepository;
 import com.fmanantial.futbolsala.repository.EquipoRepository;
 import com.fmanantial.futbolsala.repository.JugadorRepository;
+import com.fmanantial.futbolsala.repository.LigaRepository;
 import com.fmanantial.futbolsala.repository.PartidoRepository;
 import java.util.List;
 import org.springframework.boot.SpringApplication;
@@ -24,8 +30,10 @@ public class FutbolsalaApplication {
         EquipoRepository  repositorioEquipos = context.getBean(EquipoRepository.class);
         PartidoRepository repositorioPartidos = context.getBean(PartidoRepository.class);
         CalendarioRepository repositorioCalendario = context.getBean(CalendarioRepository.class);
+        LigaRepository repositorioLiga = context.getBean(LigaRepository.class);
+        EntradasTablaClasificacionRepository repclasificacion = context.getBean(EntradasTablaClasificacionRepository.class);
+        EntradasTablaGoleadoresRepository repgoleadores = context.getBean(EntradasTablaGoleadoresRepository.class);
         
-                
         // Datos de prueba
         Jugador jugador1 = new Jugador("Miguel");
         Jugador jugador2 = new Jugador("Luis");
@@ -67,7 +75,27 @@ public class FutbolsalaApplication {
          
          repositorioCalendario.save(calendario1);
         
+         Liga liga1 = new Liga();
+         
+         liga1.setCalendarioLiga(calendario1);
+         
+         repositorioLiga.save(liga1);
+         
+         // Creamos vacios la tabla de clasificacion y de goleadores
+         EntradasTablaClasificacion ent1 = new EntradasTablaClasificacion();
+         ent1.setEquipo(equip1);
+         repclasificacion.save(ent1);
+         EntradasTablaClasificacion ent2 = new EntradasTablaClasificacion();
+         ent2.setEquipo(equip2);
+         repclasificacion.save(ent2);
         
+         EntradasTablaGoleadores gol1 = new EntradasTablaGoleadores();
+         gol1.setJugador(jugador1);
+         gol1.setNro_goles(6);
+         gol1.setPosicion(1);
+         repgoleadores.save(gol1);
+         
+         
 	}
         
 }
