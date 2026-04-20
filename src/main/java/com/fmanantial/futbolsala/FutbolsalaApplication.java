@@ -15,6 +15,7 @@ import com.fmanantial.futbolsala.repository.JugadorRepository;
 import com.fmanantial.futbolsala.repository.LigaRepository;
 import com.fmanantial.futbolsala.repository.PartidoRepository;
 import java.util.List;
+import java.util.Set;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -39,7 +40,7 @@ public class FutbolsalaApplication {
         Jugador jugador2 = new Jugador("Luis");
         Jugador jugador3 = new Jugador("Marcos");
         
-        List<Jugador> ljugadores = List.of(jugador1,jugador2,jugador3);
+        Set<Jugador> ljugadores = Set.of(jugador1,jugador2,jugador3);
         
         repositorioJugadores.save(jugador1);
         repositorioJugadores.save(jugador2);
@@ -63,7 +64,7 @@ public class FutbolsalaApplication {
         partido1.setEquipos(lequipos);
         partido2.setEquipos(lequipos);
         
-        List<Partido> lPartidos = List.of(partido1,partido2);
+        Set<Partido> lPartidos = Set.of(partido1,partido2);
         
         repositorioPartidos.save(partido1);
         repositorioPartidos.save(partido2);

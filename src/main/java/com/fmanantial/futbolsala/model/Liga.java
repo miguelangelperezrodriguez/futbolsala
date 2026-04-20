@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import java.util.List;
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,10 +31,10 @@ public class Liga {
     Calendario calendarioLiga;
     
     @OneToMany
-    List<EntradasTablaGoleadores> tablaGoleadores;
+    Set<EntradasTablaGoleadores> tablaGoleadores;
     
     @OneToMany
-    List<EntradasTablaClasificacion> tablaClasificacion;
+    Set<EntradasTablaClasificacion> tablaClasificacion;
 
     
 }

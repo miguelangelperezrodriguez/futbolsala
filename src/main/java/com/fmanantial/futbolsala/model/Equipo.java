@@ -9,7 +9,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import java.util.List;
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,7 +33,7 @@ public class Equipo {
     
     @ManyToMany
     @JoinTable(name="jugadores_equipo")            
-    List<Jugador> plantilla;
+    Set<Jugador> plantilla;
     
     public Equipo (String nombre)
     {
